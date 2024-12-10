@@ -1,85 +1,70 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="intro.css">
-    <title>Quyet Nguyen Ngoc</title>
-</head>
-
-<body>
-    <header class="container">
-        <div class="page-header">
-            <div class="logo">
-                <a href="#">Logo.</a>
-            </div>
-            <input type="checkbox" id="click">
-
-            <label for="click" class="mainicon">
-                <div class="menu">
-                    <i class='bx bx-menu'></i>
-                </div>
-            </label>
-            <ul>
-                <li><a href="#"  class="active" style="--navAni:1">Home</a></li>
-                <li><a href="#" style="--navAni:2">About</a></li>
-                <li><a href="#" style="--navAni:3">Skills</a></li>
-                <li><a href="#" style="--navAni:4">Portfolio</a></li>
-                <li><a href="#" style="--navAni:5">Contact</a></li>
-            </ul>
-            <label class="mode">
-                <input type="checkbox" id="darkModeToggle">
-                <i class='bx bxs-moon'></i>
-            </label>
-        </div>
-    </header>
-
-
-    <section class="container">
-        <div class="main">
-            <div class="detail">
-                <h3>Hi, It's Me</h3>
-                <h1>I'm <span style="color:#f9532d;">Quyet Nguyen Ngoc</span></h1>
-                <p>I'm a professional Web Developer. Our Main Goal to help & Satisficed the Local & Global Clients by
-                    web development solutions
-                </p>
-                <div class="social">
-                    <a href="#" style="--socialAni:1"><i class='bx bxl-linkedin'></i></a>
-                    <a href="#" style="--socialAni:2"><i class='bx bxl-instagram'></i></a>
-                    <a href="#" style="--socialAni:3"><i class='bx bxl-github'></i></a>
-                    <a href="#" style="--socialAni:4"><i class='bx bxl-facebook-circle'></i></a>
-                </div>
-            </div>
-            <div class="img-sec">
-                <div class="images">
-                    <img src="f-1.png" alt="" class="img-w">
-                </div>
-            </div>
-        </div>
-    </section>
-    <script>
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const body = document.body;
-        const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
-        if (isDarkMode) {
-            body.classList.add('dark-mode');
-            darkModeToggle.checked = true;
+    <title>Bạn có phải là intern rách?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 10%;
         }
-        darkModeToggle.addEventListener('change', () => {
-            if (darkModeToggle.checked) {
-                body.classList.add('dark-mode');
-                localStorage.setItem('darkMode', 'enabled');
-            } else {
-                body.classList.remove('dark-mode');
-                localStorage.setItem('darkMode', 'disabled');
-            }
-        });
-    </script>
-    
-</body>
 
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            position: relative;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .no {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bạn có phải là intern rách?</h1>
+    <div class="button-container">
+        <button class="yes" onclick="showCorrectAnswer()">Đúng</button>
+        <button class="no" onmouseover="moveNoButton()">Sai</button>
+    </div>
+    <script>
+        function showCorrectAnswer() {
+            alert("Chính xác!!!");
+        }
+
+        function moveNoButton() {
+            const noButton = document.querySelector('.no');
+            const container = document.querySelector('.button-container');
+
+            // Generate random positions within the container
+            const maxX = container.offsetWidth - noButton.offsetWidth;
+            const maxY = container.offsetHeight - noButton.offsetHeight;
+
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+        }
+    </script>
+</body>
 </html>
